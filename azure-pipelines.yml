@@ -9,16 +9,16 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 
-steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
-  
   vars_prompt:
-    - name: partition
-      prompt: "Enter a partition name"
-      default: "Common"
 
- -script:
-    - name: Print out your input
-      debug:
-        msg: "You provided the {{ partition }} partition for the 'partition' prompt"
+    - name: username
+      prompt: "What is your username?"
+      private: no
+
+    - name: password
+      prompt: "What is your password?"
+
+  tasks:
+
+    - debug:
+        msg: 'Logging in as {{ username }}'
