@@ -1,7 +1,8 @@
-name: $(Date:yyyyMMdd)$(Rev:.r)
-variables:
-  var1: value1
 jobs:
-- job: One
+- job: MyJob
+  displayName: My First Job
+  continueOnError: true
+  workspace:
+    clean: outputs
   steps:
-  - script: echo First step!
+  - script: echo My first job
