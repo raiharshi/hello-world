@@ -12,8 +12,14 @@ pool:
 steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
+  vars_prompt:
+    - name: partition
+      prompt: "Enter a partition name"
+      default: "Common"
 
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
+  tasks:
+    - name: Print out your input
+      debug:
+        msg: "You provided the {{ partition }} partition for the 'partition' prompt"
+  
   displayName: 'Run a multi-line script'
