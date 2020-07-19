@@ -21,5 +21,3 @@ steps:
     - name: Print out your input
       debug:
         msg: "You provided the {{ partition }} partition for the 'partition' prompt"
-  
-  displayName: 'Run a multi-line script'
